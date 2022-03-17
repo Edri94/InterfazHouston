@@ -1,0 +1,13 @@
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\bin\Debug\InterfazHou.exe.config
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\bin\Debug\InterfazHou.exe
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\bin\Debug\InterfazHou.pdb
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.csproj.AssemblyReference.cache
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.Properties.Resources.resources
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.csproj.GenerateResource.cache
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.csproj.CoreCompileInputs.cache
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.exe
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.pdb
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.Form1.resources
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\bin\Debug\InterfazHouston.dll
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\bin\Debug\InterfazHouston.pdb
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHou\obj\Debug\InterfazHou.csproj.CopyComplete
