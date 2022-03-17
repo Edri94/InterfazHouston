@@ -2,6 +2,7 @@
 using Biblioteca_InterfazHouston.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,6 +92,136 @@ namespace InterfazHouston.Procesos
                 Log.Escribe(ex, "Error");
 
                 return ConectDB;
+            }
+
+        }
+
+        public void Shell(string cmd, string[] args)
+        {
+            try
+            {
+                Process p = new Process();
+                p.EnableRaisingEvents = false;
+                p.StartInfo.FileName = cmd;
+                p.StartInfo.Arguments = "";
+                p.StartInfo.CreateNoWindow = false;
+                p.Start();
+                p.WaitForExit();
+
+            }
+            catch (Exception ex)
+            {
+                Log.Escribe(ex);
+            }
+        }
+
+        private static string RegresaFechaArch(DateTime fecha)
+        {
+            try
+            {
+                int mes;
+                int year;
+
+                string month;
+                string ano;
+
+                mes = Int32.Parse(fecha.ToString("MM"));
+                year = Int32.Parse(fecha.ToString("yyyy"));
+
+                if (mes == 1)
+                {
+                    ano = (year - 1).ToString();
+                    month = "12";
+                }
+                else
+                {
+                    ano = year.ToString();
+                    month = (mes - 1).ToString("00");
+                }
+
+                string fech = DateTime.Parse(ano + "/" + month + "/" + Funcion.getValueAppConfig("", "")).ToString("yyMM");
+
+                return fech;
+
+            }
+            catch (Exception ex)
+            {
+                Log.Escribe(ex);
+                return null;
+            }
+        }
+
+        private static string DiaSemana(DateTime fecha, string str_primerdiasemana)
+        {
+            int numero_dia = 0;
+            try
+            {
+                DateTime nuevaFecha;
+                String diasemana;
+
+                DateTime bandera_fecha = DateTime.Now;
+
+                for (int i = 0; i <= 7; i++)
+                {
+                    nuevaFecha = fecha.AddDays(-i);
+                    diasemana = nuevaFecha.ToString("dddd");
+
+                    if (diasemana == str_primerdiasemana.ToLower().Trim())
+                    {
+                        bandera_fecha = nuevaFecha;
+                        break;
+                    }
+                }
+                int contador = 1;
+                for (int j = 0; j <= 7; j++)
+                {
+                    if (bandera_fecha.AddDays(j).ToString("ddMMyyyy") == fecha.ToString("ddMMyyyy"))
+                    {
+                        numero_dia = contador;
+                        break;
+                    }
+                    contador++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Escribe(ex);
+            }
+            return numero_dia.ToString();
+        }
+
+
+        public static string FechaAnterior(DateTime fecha)
+        {
+            try
+            {
+                int mes, year;
+                string month, ano;
+
+                mes = Int32.Parse(fecha.ToString("MM"));
+                year = Int32.Parse(fecha.ToString("yyyy"));
+
+                if (mes == 1)
+                {
+                    ano = (year - 1).ToString();
+                    month = "12";
+                }
+                else
+                {
+                    ano = year.ToString();
+                    month = (mes - 1).ToString();
+                }
+
+                string fech;
+                return fech = new DateTime(Int32.Parse(ano), Int32.Parse(month), Int32.Parse(Funcion.getValueAppConfig("primerdiadelmes", "CargaEnvioA"))).ToString("dd/MM/yyyy");
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.Escribe(ex);
+                return null;
             }
 
         }
