@@ -3,3 +3,4 @@ C:\Users\MI05332\source\repos\InterfazHouston\InterfazHouston\bin\Debug\Interfaz
 C:\Users\MI05332\source\repos\InterfazHouston\InterfazHouston\obj\Debug\Biblioteca_InterfazHouston.csproj.CoreCompileInputs.cache
 C:\Users\MI05332\source\repos\InterfazHouston\InterfazHouston\obj\Debug\InterfazHouston.dll
 C:\Users\MI05332\source\repos\InterfazHouston\InterfazHouston\obj\Debug\InterfazHouston.pdb
+C:\Users\MI05332\source\repos\InterfazHouston\InterfazHouston\obj\Debug\Biblioteca_InterfazHouston.csproj.AssemblyReference.cache
