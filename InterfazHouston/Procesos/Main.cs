@@ -46,8 +46,17 @@ namespace InterfazHouston.Procesos
 
             this.SetParametrosIniciales();
 
-            if(this.envio_realizado == false)
+            if (this.envio_realizado == false)
             {
+
+                if (Int32.Parse(this.hoy.ToString("dd")) >= Int32.Parse(this.envio_diainicio) && Int32.Parse(this.hoy.ToString("dd")) >= Int32.Parse(this.envio_diainicio))
+                {
+                    if(this.envio_realizado == true)
+                    {
+                        Funcion.SetParameterAppSettings("realizado", "ENVIO", "0");
+                    }
+                }
+
                 if (paso1)
                 {
                     this.DescargaAS400();
@@ -71,10 +80,14 @@ namespace InterfazHouston.Procesos
 
                     string ruta_origen = this.as400_pathdatos + this.as400_tipoarchivo;
                     string ruta_copiado = this.as400_pathtransfer + this.as400_tipoarchivo;
+
                     if (File.Exists(ruta_origen))
                     {
                         //Shell("xcopy.exe", new string[] { ruta_origen, ruta_copiado});
                         File.Copy(ruta_origen, ruta_copiado);
+
+                        Funcion.SetParameterAppSettings("mes", "ENVIO", this.hoy.ToString("MM"));
+                        Funcion.SetParameterAppSettings("anio", "ENVIO", this.hoy.ToString("yy"));
                     }
                 }
             }
@@ -82,14 +95,25 @@ namespace InterfazHouston.Procesos
             {
                 Log.Escribe(ex);
             }
+            finally
+            {
+                string str_hoy = this.hoy.ToString("yyMM");
+                string str_enviorealizado = this.envio_anio.Substring(2, 2) + this.envio_mes;
+
+                if (str_hoy != str_enviorealizado)
+                {
+                    Funcion.SetParameterAppSettings("realizado", "ENVIO", "1");
+                }
+                
+            }
         }
 
         private void DescargaAS400()
         {
             try
             {
-               
-                
+                //aqui va el comando para bajar el archivo del AS400
+                Shell("", new string[] { }); 
             }
             catch (Exception ex)
             {
